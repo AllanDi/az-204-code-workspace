@@ -1,0 +1,43 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: local  # Padrão: usa mocks
+  
+  application:
+    name: az204-spring-learning
+
+# Configurações do estudo AZ-204
+az204:
+  mode: "LEARNING"
+
+---
+# PROFILE LOCAL - TUDO MOCKADO
+spring:
+  config:
+    activate:
+      on-profile: local
+
+az204:
+  mode: "LOCAL-MOCKS"
+
+---
+# PROFILE AZURE - RECURSOS REAIS GRATUITOS
+spring:
+  config:
+    activate:
+      on-profile: azure
+
+az204:
+  mode: "AZURE-REAL"
+
+---
+# PROFILE HYBRID - MISTURA AZURE GRATUITO + MOCKS PAGOS
+spring:
+  config:
+    activate:
+      on-profile: hybrid
+
+az204:
+  mode: "HYBRID"
